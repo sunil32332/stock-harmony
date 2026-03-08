@@ -1,11 +1,11 @@
 import { Bell, Search, User } from "lucide-react";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { notifications } from "@/data/mockData";
+import { useUnreadCount } from "@/hooks/useNotifications";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function TopBar() {
-  const unreadCount = notifications.filter((n) => !n.read).length;
+  const { data: unreadCount } = useUnreadCount();
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState("");
 
@@ -31,7 +31,7 @@ export function TopBar() {
           className="relative p-2 rounded-lg hover:bg-secondary transition-colors"
         >
           <Bell className="h-5 w-5 text-muted-foreground" />
-          {unreadCount > 0 && (
+          {(unreadCount ?? 0) > 0 && (
             <span className="absolute -top-0.5 -right-0.5 h-5 w-5 rounded-full bg-destructive text-destructive-foreground text-xs flex items-center justify-center font-medium">
               {unreadCount}
             </span>
@@ -43,8 +43,8 @@ export function TopBar() {
             <User className="h-4 w-4 text-primary" />
           </div>
           <div className="hidden md:block">
-            <p className="text-sm font-medium text-foreground">John Smith</p>
-            <p className="text-xs text-muted-foreground">Admin</p>
+            <p className="text-sm font-medium text-foreground">Guest User</p>
+            <p className="text-xs text-muted-foreground">Staff</p>
           </div>
         </div>
       </div>
