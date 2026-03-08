@@ -65,7 +65,7 @@ export function AppSidebar() {
                       end={item.url === "/"}
                       className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 ${
                         isActive(item.url)
-                          ? "glass-card glow-primary text-primary-foreground"
+                          ? "bg-sidebar-primary text-sidebar-primary-foreground font-semibold"
                           : "text-sidebar-foreground hover:bg-sidebar-accent"
                       }`}
                       activeClassName=""
