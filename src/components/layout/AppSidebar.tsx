@@ -46,7 +46,7 @@ export function AppSidebar() {
           {!collapsed && (
             <div className="animate-fade-in">
               <h1 className="font-display text-lg font-bold text-sidebar-accent-foreground tracking-tight">StockSphere</h1>
-              <p className="text-xs text-muted-foreground">Inventory Management</p>
+              <p className="text-xs text-sidebar-foreground">Inventory Management</p>
             </div>
           )}
         </div>
